@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+
+    <script>
+        function handleClick() {
+            alert("Hello!");
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Events</h1>
+
+    <button onclick="handleClick();">CLICK ME</button>
+    <br>
+    <button id="mybtn">CLICK ME TOO</button>
+    <button id="removebtn">REMOVE CLICK HANDLER</button>
+
+    <section>
+        <h2>Counter</h2>
+        <div>
+            <input type="number" id="counter" value="0" readonly>
+            <br>
+            <button>-15</button>
+            <button>-10</button>
+            <button>-5</button>
+            <button>-1</button>
+            <button>R</button>
+            <button>+1</button>
+            <button>+5</button>
+            <button>10</button>
+            <button>15</button>
+
+            <!-- <button id="increment">+1</button> -->
+
+        </div>
+    </section>
+    <script>
+        for (const btn of document.querySelectorAll("input#counter~button")) {
+            btn.addEventListener("click", function (event) {
+                // debugger
+                console.log("EVENT:", event);
+                console.log("TARGET:", event.target);
+                console.log("VALUE:", event.target.innerText);
+                const change = parseInt(event.target.innerText);
+                const counter = document.getElementById("counter");
+                if (change === 'R') counter.value = '0';
+                else counter.value = parseInt(counter.value) + change;
+
+            })
+        }
+    </script>
+    <script>
+
+        const clickHandler = function () {
+            alert("Hello!");
+        }
+        document.getElementById("mybtn").addEventListener("click", clickHandler);
+
+        document.getElementById("removebtn").addEventListener("click", function () {
+            document.getElementById("mybtn").removeEventListener('click', clickHandler);
+            console.log("Removed onclick from other button");
+
+        });
+    </script>
+    <script>
+        // document.getElementById("increment").addEventListener("click", function() {
+        //   const counter = document.getElementById("counter");
+        //   counter.value =  parseInt(counter.value) + 1;
+        // })
+
+        // function changeCounter(change) {
+        //     const counter = document.getElementById("counter");
+        //     if (change === 'R') counter.value = '0';
+        //     else counter.value = parseInt(counter.value) + change;
+        // }
+
+
+    </script>
+</body>
+
+</html>
