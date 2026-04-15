@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>Forms</h1>
+    <section>
+        <h2>Validation</h2>
+        <form>
+            <label for="trainerName">Name</label>
+            <input type="text" name="name" id="trainerName" required minlength="3" maxlength="10">
+            <br>
+            <label for="trainerAge">Age</label>
+            <input type="number" name="age" id="trainerAge" required min="18" max="100">
+            <br>
+            <label for="trainerSpecialism">Specialism</label>
+            <select name="age" id="trainerSpecialism" required>
+                <option value="" selected>--Please select a specialism--</option>
+                <option value="java">JAVA</option>
+                <option value="web">WEB</option>
+                <option value="devops">DevOps</option>
+            </select>
+            <br>
+            <button>SUBMIT</button>
+        </form>
+    </section>
+
+    <script>
+        // 'should' only use anonymous funcs for event listeners as it allows you to use this
+        document.querySelector("form").addEventListener("submit",  function (event) {
+            // prevents the page from being reloaded
+            event.preventDefault();
+            console.log("TARGET:", event.target);
+            console.log("THIS:", this);
+
+
+
+            const data = {
+                name: document.getElementById("trainerName").value,
+                age: parseInt(event.target.trainerAge.value),
+                specialism: this.trainerSpecialism.value
+            }
+            console.log("DATA:", data);
+            
+
+            // SEND DATA TO API
+
+            this.reset();
+            this.trainerName.focus();
+        })
+    </script>
+</body>
+
+</html>
