@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+    <script>
+        // 12 -> number literal
+        // 'hello' -> string literal
+        // [] -> array literal
+        console.log([1, 2, 3, 4, 5]);
+        console.log(new Array(5));
+
+
+        // JavaScript Object Notation
+        // object literal -> {}
+        const me = {
+            name: "JH",
+            age: 32,
+            specialism: "Java"
+        }
+        console.log(me);
+
+
+        class Trainer {
+            name;
+            age;
+            specialism;
+
+            constructor(name, age, specialism) {
+                this.name = name;
+                this.age = age;
+                this.specialism = specialism;
+            }
+
+            intro() {
+return `Hello! My name is ${this.name}, I am ${this.age} years old and I specialise in ${this.specialism}`;
+            }
+        }
+
+        const me2 = new Trainer("JH", 32, "Java");
+        me2.intro();
+    </script>
+</head>
+
+<body>
+    <h1>Objects</h1>
+</body>
+
+</html>

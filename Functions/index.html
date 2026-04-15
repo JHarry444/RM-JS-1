@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+
+    <script>
+
+        (function () {
+            function add(a, b) {
+                return a + b;
+            }
+
+            const subtract = function (a, b) {
+                return a - b;
+            }
+
+            console.log("1 + 1 =", add(1, 1));
+
+            const multiply = (a, b) => a * b;
+            console.log(typeof multiply);
+
+
+        })();
+        const add = (a, b) => a + b;
+
+        const subtract = (a, b) => {
+            return a - b;
+        }
+
+        console.log("1 + 1 =", add(1, 1));
+
+        const print = toPrint => console.log("PRINT:", toPrint);
+
+
+        const names = [
+            "Jordan H", "Jordan B", "Shafeeq",
+            "Cameron", "Adam", "Peter"
+        ];
+
+        const findBeginningWith = (array, letter) => {
+            const beginningWith = [];
+            for (name of array) {
+                if (name.toLowerCase().startsWith(letter)) {
+                    beginningWith.push(name);
+                }
+            }
+            return beginningWith;
+        }
+
+        findBeginningWith(names, 'j');
+        // predicate -> a function that returns true/false
+        const find = (array, predicate) => {
+            // debugger
+            const found = [];
+
+            for (ele of array) {
+                if (predicate(ele)) found.push(ele);
+            }
+
+            return found;
+        }
+
+        function beginsWithJ(name) {
+            return name.toLowerCase().startsWith('j');
+        }
+
+        find(names, beginsWithJ);
+
+        find(names, function (name) {
+            return name.toLowerCase().startsWith("p");
+        })
+        // higher order functions 
+        // (functions that take in or return another function)
+        find(names, name => name.toLowerCase().startsWith('c'));
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>Functions</h1>
+</body>
+
+</html>

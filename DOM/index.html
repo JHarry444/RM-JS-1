@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        .red {
+            color: red;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>DOM</h1>
+    <section>
+        <h2>Find and manipulate</h2>
+        <p id="demo"></p>
+    </section>
+
+    <section>
+        <h2>Add new</h2>
+        <div id="output">
+
+        </div>
+    </section>
+
+    <script>
+        const demoP = document.getElementById("demo");
+
+        demoP.innerText = "Hello, World!";
+        demoP.classList.add("red")
+        demoP.className
+        const reds = document.querySelectorAll(".red")
+        console.log("REDS:", reds);
+
+        const red = document.querySelector(".red")
+        console.log("RED:", red);
+
+        const output = document.getElementById("output");
+        console.log("OUTPUT:", output);
+
+        const newP = document.createElement("p");
+        console.log("NEWP:", newP);
+
+        newP.innerText = "Hello, again!";
+        output.appendChild(newP);
+
+    </script>
+</body>
+
+</html>
