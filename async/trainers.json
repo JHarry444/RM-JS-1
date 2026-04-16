@@ -1,0 +1,10 @@
+{
+    "trainers": [
+        {
+            "id": "abcd",
+            "name": "JH",
+            "age": 32,
+            "specialism": "Java"
+        }
+    ]
+}
