@@ -1,10 +1,29 @@
 {
-    "trainers": [
-        {
-            "id": "abcd",
-            "name": "JH",
-            "age": 32,
-            "specialism": "Java"
-        }
-    ]
+  "trainers": [
+    {
+      "id": "abcd",
+      "name": "JH",
+      "age": 32,
+      "specialism": "Java"
+    },
+    {
+      "name": "cameron",
+      "age": 33,
+      "specialism": "web",
+      "id": "N7GAZCtnrxs"
+    },
+    {
+      "name": "shafeeq",
+      "age": 45,
+      "specialism": "java",
+      "id": "JQDzbSZUPzQ"
+    },
+    {
+      "name": "adam",
+      "age": 26,
+      "specialism": "devops",
+      "id": "L9h1Gx5pdhE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

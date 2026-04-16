@@ -34,28 +34,67 @@ async function fetchTrainers() {
 
 const json = await fetchTrainers();
 
-try {
-  const response = await new Promise(function (resolve, reject) {
-    const req = new XMLHttpRequest();
-    req.open("GET", "http://localhost:8080/trainers");
-    req.onreadystatechange = function () {
-      // debugger
-      if (this.readyState === 4 && this.status === 200) {
-        debugger
-        console.log("req successful");
-        resolve(this.responseText);
-      } else if (this.readyState === 4 && this.status !== 200) {
-        debugger
-        console.log("req failed");
-        reject({ status: this.status, message: this.responseText });
-      }
-    }
-    req.send();
-  });
-  const json = JSON.parse(response);
-  console.log("JSON:", json);
-} catch (error) {
-  // debugger
-  console.error(error);
-}
+// try {
+//   const response = await new Promise(function (resolve, reject) {
+//     const req = new XMLHttpRequest();
+//     req.open("GET", "http://localhost:8080/trainers");
+//     req.onreadystatechange = function () {
+//       // debugger
+//       if (this.readyState === 4 && this.status === 200) {
+//         debugger
+//         console.log("req successful");
+//         resolve(this.responseText);
+//       } else if (this.readyState === 4 && this.status !== 200) {
+//         debugger
+//         console.log("req failed");
+//         reject({ status: this.status, message: this.responseText });
+//       }
+//     }
+//     req.send();
+//   });
+//   const json = JSON.parse(response);
+//   console.log("JSON:", json);
+// } catch (error) {
+//   // debugger
+//   console.error(error);
+// }
 
+
+
+// 'should' only use anonymous funcs for event listeners as it allows you to use this
+document.querySelector("form").addEventListener("submit", async function (event) {
+  // prevents the page from being reloaded
+  event.preventDefault();
+  console.log("TARGET:", event.target);
+  console.log("THIS:", this);
+
+
+
+  const data = {
+    name: document.getElementById("trainerName").value,
+    age: parseInt(event.target.trainerAge.value),
+    specialism: this.trainerSpecialism.value
+  }
+  console.log("DATA:", data);
+
+  debugger
+  // SEND DATA TO API
+
+  try {
+    const res = await fetch("http://localhost:8080/trainers", {
+      method: "POST",
+      body: JSON.stringify(data)
+    })
+    if (res.status === 201) {
+      console.log("Trainer added successfully");
+      fetchTrainers();
+      this.reset();
+      this.trainerName.focus();
+    } else {
+      throw new Error(res.statusText);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+})

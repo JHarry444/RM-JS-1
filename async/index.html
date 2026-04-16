@@ -14,6 +14,25 @@
 
         </pre>
       </section>
+      <section>
+        <h2>Form</h2>
+        <form>
+            <label for="trainerName">Name</label>
+            <input type="text" name="name" id="trainerName" required minlength="3" maxlength="10">
+            <br>
+            <label for="trainerAge">Age</label>
+            <input type="number" name="age" id="trainerAge" required min="18" max="100">
+            <br>
+            <label for="trainerSpecialism">Specialism</label>
+            <select name="age" id="trainerSpecialism" required>
+                <option value="" selected>--Please select a specialism--</option>
+                <option value="java">JAVA</option>
+                <option value="web">WEB</option>
+                <option value="devops">DevOps</option>
+            </select>
+            <br>
+            <button>SUBMIT</button>
+      </section>
     </div>
     <script type="module" src="/src/main.js"></script>
   </body>
